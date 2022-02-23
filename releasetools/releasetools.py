@@ -25,12 +25,12 @@ def IncrementalOTA_InstallEnd(info):
   OTA_InstallEnd(info, True)
   return
 
-def AddImage(info, basename, dest, incremental=False):
+def AddImage(info, basename, dest, incremental=False, path="IMAGES/"):
   name = basename
   if incremental:
-      data = info.source_zip.read("IMAGES/"+basename)
+      data = info.source_zip.read(path + basename)
   else:  
-      data = info.input_zip.read("IMAGES/" + basename)
+      data = info.input_zip.read(path + basename)
   common.ZipWriteStr(info.output_zip, name, data)
   info.script.AppendExtra('package_extract_file("%s", "%s");' % (name, dest))
 
@@ -42,4 +42,6 @@ def OTA_InstallEnd(info, incremental=False):
   AddImage(info, "dtbo.img", "/dev/block/by-name/dtbo", incremental)
   PrintInfo(info, "/dev/block/by-name/vbmeta")
   AddImage(info, "vbmeta.img", "/dev/block/by-name/vbmeta", incremental)
+  PrintInfo(info, "/dev/block/by-name/recovery")
+  AddImage(info, "recovery-two-step.img", incremental, "OTA/")
   return
