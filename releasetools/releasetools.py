@@ -28,9 +28,9 @@ def IncrementalOTA_InstallEnd(info):
 def AddImage(info, basename, dest, incremental=False, path="IMAGES/"):
   name = basename
   if incremental:
-      data = info.source_zip.read(path + basename)
-  else:  
       data = info.input_zip.read(path + basename)
+  else:  
+      data = info.source_zip.read(path + basename)
   common.ZipWriteStr(info.output_zip, name, data)
   info.script.AppendExtra('package_extract_file("%s", "%s");' % (name, dest))
 
