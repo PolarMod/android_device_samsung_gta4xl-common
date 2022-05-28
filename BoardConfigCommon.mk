@@ -159,8 +159,8 @@ BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_RECOVERY_KEY_PATH := /root/.android-certs/releasekey.key
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
-# AVB for system and vendor
-BOARD_AVB_VBMETA_SYSTEM := system system_ext product vendor
+# AVB for system and recovery
+BOARD_AVB_VBMETA_SYSTEM := system system_ext product recovery
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := /root/.android-certs/releasekey.key
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
