@@ -162,6 +162,8 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 # General AVB
 BOARD_AVB_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_KEY_PATH := /root/.android-certs/releasekey.key
+# vbmeta
+BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := /root/.android-certs/releasekey.key
 
 ## Wi-Fi
 BOARD_WLAN_DEVICE                := slsi
